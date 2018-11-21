@@ -1,6 +1,7 @@
 from urllib import request, parse
 from bs4 import BeautifulSoup
 import http.cookiejar
+import time
 
 
 class FormSubmitScript(object):
@@ -56,7 +57,7 @@ class FormSubmitScript(object):
         opener.open(req)
         self.opener = opener
 
-    def AddNewConsumer(self, town, telnumber, name, birthday):
+    def AddNewConsumer(self, name, birthday, telnumber, town):
         # 添加新客到客户list
         # telnumber=11231233
         # name="测试"
@@ -122,7 +123,10 @@ class FormSubmitScript(object):
             # 4, 构造增加新客的请求
             new_req = request.Request(self.url_submit, data=info_post_data, headers=self.req_headers)
             # 5, 利用opener去发送post请求,得到响应
+            #time.sleep(0.5)
             response = self.opener.open(new_req)
+            # sleep
+            #time.sleep(0.5)
             # 6, 解析response,打印Error
             print("正在解析新客提交结果:")
             bp = BeautifulSoup(response.read(), "html.parser", from_encoding='utf-8')
@@ -144,14 +148,21 @@ class FormSubmitScript(object):
         print("新增失败计数:", self.error_count)
 
 
+# 手动添加新客信息
+newconsumer_list = [('测试的', '2018/6/10', '1', 'taitou')]
+#240
+newconsumer_list.append(('王路远', '2018/11/11', '18311712551', 'sankongqiao'))
+#280
+
+
 if __name__ == '__main__':
     # 默认参数: 1,登录参数 2,登录URL 3,提交URL
     user = '816288'
-    psw = 'JW20120208'
+    psw = 'jw20120208'
     url_login = "http://mmsynut.shengyuan.com/CRMSelfServiceDemo/Logoncn.asp"
     url_submit = "http://mmsynut.shengyuan.com/CRMSelfServiceDemo/newconsumernew.asp?fumuid=7625"
-    # 自定义新客信息
-    consumer_list = [('langan', '111111', '啊啊啊', '2018/5/2'), ('taitou', '222222', '测试的', '2018/5/2')]
+    # 自定义新客信息(name,birthday,tel,town)
+    consumer_list = newconsumer_list
     # 实例化
     obj_script = FormSubmitScript(url_login, url_submit)
     # 登录,加载cookie
@@ -159,6 +170,7 @@ if __name__ == '__main__':
     # 加载新客
     for consumer in consumer_list:
         obj_script.AddNewConsumer(consumer[0], consumer[1], consumer[2], consumer[3])
+
     # 提交新客
     obj_script.CommitNewConsumer()
     # 加载信息.
