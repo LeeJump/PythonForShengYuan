@@ -151,9 +151,27 @@ class FormSubmitScript(object):
 # 手动添加新客信息
 newconsumer_list = [('测试的', '2018/6/10', '1', 'taitou')]
 #240
-newconsumer_list.append(('王路远', '2018/11/11', '18311712551', 'sankongqiao'))
-#280
-
+newconsumer_list.append(('张燕飞', '2018/11/25', '13918719403', 'langan'))
+newconsumer_list.append(('郑云飞', '2018/11/25', '15705835556', 'langan'))
+newconsumer_list.append(('许继红', '2018/11/25', '13774050025', 'maji'))
+newconsumer_list.append(('刘玲', '2018/11/26', '13213897855', 'zhangzhuang'))
+newconsumer_list.append(('温玲玲', '2018/11/26', '18717735459', 'langan'))
+newconsumer_list.append(('马云飞', '2018/11/26', '18638381119', 'gudui'))
+newconsumer_list.append(('陈紫风', '2018/11/27', '13538327715', 'wangdian'))
+newconsumer_list.append(('黄楠', '2018/11/27', '13776336022', 'zhangli'))
+newconsumer_list.append(('王亚楠', '2018/11/27', '18377170900', 'zhangli'))
+newconsumer_list.append(('杜毛毛', '2018/11/28', '15737638559', 'sankongqiao'))
+newconsumer_list.append(('韩婷', '2018/11/28', '17317877622', 'wanggang'))
+newconsumer_list.append(('任玉', '2018/11/28', '15001989207', 'guihua'))
+newconsumer_list.append(('田豆豆', '2018/11/28', '15188581812', 'guihua'))
+newconsumer_list.append(('李平', '2018/11/28', '15188582161', 'guihua'))
+newconsumer_list.append(('吴刚', '2018/11/28', '17746880106', 'zhangli'))
+newconsumer_list.append(('张敏', '2018/11/28', '15939757802', 'binhu'))
+newconsumer_list.append(('代洁丽', '2018/11/28', '13586365270', 'langan'))
+newconsumer_list.append(('寥哲', '2018/11/29', '13173668661', 'zhangzhuang'))
+newconsumer_list.append(('楚静', '2018/11/29', '18237673686', 'zhangzhuang'))
+newconsumer_list.append(('张磊', '2018/11/29', '18268389808', 'guihua'))
+#340
 
 if __name__ == '__main__':
     # 默认参数: 1,登录参数 2,登录URL 3,提交URL
